@@ -1,24 +1,24 @@
 resource "aws_s3_bucket" "video" {
-  bucket = "${var.product}-video-${var.env}"
+  bucket = "${var.product}-video-${var.environment}"
   force_destroy = true
   tags = {
-    Environment = var.env
+    Environment = var.environment
   }
 }
 
 resource "aws_s3_bucket" "audio" {
-  bucket = "${var.product}-audio-${var.env}"
+  bucket = "${var.product}-audio-${var.environment}"
   force_destroy = true
   tags = {
-    Environment = var.env
+    Environment = var.environment
   }
 }
 
 resource "aws_s3_bucket" "data" {
-  bucket = "${var.product}-data-${var.env}"
+  bucket = "${var.product}-data-${var.environment}"
   force_destroy = true
   tags = {
-    Environment = var.env
+    Environment = var.environment
   }
 }
 

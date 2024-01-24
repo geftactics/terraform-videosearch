@@ -5,7 +5,7 @@ data "archive_file" "video" {
 }
 
 resource "aws_lambda_function" "video" {
-    function_name    = "${var.product}-process-video-${var.env}"
+    function_name    = "${var.product}-process-video-${var.environment}"
     role             = aws_iam_role.this.arn
     handler          = "process_video.handler"
     runtime          = "nodejs16.x"
@@ -26,7 +26,7 @@ data "archive_file" "audio" {
 }
 
 resource "aws_lambda_function" "audio" {
-    function_name    = "${var.product}-process-audio-${var.env}"
+    function_name    = "${var.product}-process-audio-${var.environment}"
     role             = aws_iam_role.this.arn
     handler          = "process_audio.handler"
     runtime          = "nodejs16.x"
@@ -47,7 +47,7 @@ data "archive_file" "data" {
 }
 
 resource "aws_lambda_function" "data" {
-    function_name    = "${var.product}-process-data-${var.env}"
+    function_name    = "${var.product}-process-data-${var.environment}"
     role             = aws_iam_role.this.arn
     handler          = "process_data.handler"
     runtime          = "nodejs16.x"
@@ -65,6 +65,6 @@ resource "aws_lambda_function" "data" {
 
 resource "aws_lambda_layer_version" "ffmpeg" {
   filename         = "data/lambda/ffmpeg.zip"
-  layer_name       = "${var.product}-process-data-ffmpeg-layer-${var.env}"
+  layer_name       = "${var.product}-process-data-ffmpeg-layer-${var.environment}"
   source_code_hash = filebase64sha256("data/lambda/ffmpeg.zip")
 }

@@ -39,12 +39,12 @@ data "aws_iam_policy_document" "assume" {
 }
 
 resource "aws_iam_role" "this" {
-  name = "${var.product}-${var.env}"
+  name = "${var.product}-${var.environment}"
   assume_role_policy = data.aws_iam_policy_document.assume.json
 }
 
 resource "aws_iam_policy" "this" {
-  name        = "${var.product}-${var.env}"
+  name        = "${var.product}-${var.environment}"
   policy      = data.aws_iam_policy_document.this.json
 }
 
